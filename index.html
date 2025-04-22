@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E-Learning Platform</title>
+  <title>Gamified E-Learning Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,78 +13,122 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f0f0f;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .hex-bg {
-      background-image: url('ae5a08cd-f167-4304-955e-ca6d4f3ca6ae.png'); /* Update path if needed */
-      background-size: cover;
-      background-position: center;
-      height: 100%;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      padding: 30px 20px;
+    }
+
+    header {
+      width: 100%;
+      max-width: 1200px;
       text-align: center;
+      margin-bottom: 40px;
     }
 
-    .content {
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 50px;
-      border-radius: 20px;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-      max-width: 600px;
-    }
-
-    .content h1 {
-      font-size: clamp(2rem, 5vw, 48px);
-      margin-bottom: 20px;
+    header h1 {
+      font-size: 3rem;
       background: linear-gradient(to right, #00f260, #0575e6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .content p {
-      font-size: clamp(1rem, 2.5vw, 20px);
-      margin-bottom: 30px;
-      color: #ddd;
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
     }
 
-    .btn {
-      padding: 15px 40px;
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
       font-size: 1rem;
-      background: linear-gradient(90deg, #00f260, #0575e6);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      color: #aaa;
+      margin-bottom: 10px;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #00f260, 0 0 25px #0575e6;
+    .progress-bar {
+      background: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 10px;
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(to right, #00f260, #0575e6);
+      width: 65%; /* Simulated progress */
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div class="hex-bg">
-    <div class="content">
-      <h1>Welcome to E-Learn</h1>
-      <p>Empower your future through knowledge and skills online.</p>
-      <button class="btn" aria-label="Get started with E-Learn">Get Started</button>
-    </div>
-  </div>
+  <header>
+    <h1>E-Learn Quest</h1>
+    <p>Gamify your learning. Earn points. Unlock levels. Master skills.</p>
+  </header>
 
-  <script>
-    document.querySelector(".btn").addEventListener("click", () => {
-      alert("Redirecting to your learning dashboard...");
-      // window.location.href = "dashboard.html"; // Uncomment and replace with actual URL
-    });
-  </script>
+  <section class="dashboard">
+    <div class="card">
+      <h2>🧠 Brain Boost</h2>
+      <p>Completed 3 of 5 quizzes</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 60%;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📚 Learn & Earn</h2>
+      <p>Watched 4 of 10 lessons</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 40%;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🏆 Achievement</h2>
+      <p>5 badges unlocked</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 100%;"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 E-Learn Quest | Level Up Your Mind
+  </footer>
 </body>
 </html>
