@@ -1,11 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const getStartedBtn = document.querySelector(".btn");
+  // Simulate dynamic user data for demo purposes
+  const userProgress = {
+    quizzesCompleted: 3,
+    totalQuizzes: 5,
+    lessonsWatched: 4,
+    totalLessons: 10,
+    badgesUnlocked: 5,
+    maxBadges: 5
+  };
 
-  getStartedBtn.addEventListener("click", () => {
-    // Simulate redirecting to a login or course page
-    alert("Redirecting to courses or sign-up page...");
+  const progressElements = document.querySelectorAll(".progress");
 
-    // Uncomment the line below to redirect for real
-    // window.location.href = "courses.html"; // Replace with actual page
+  progressElements.forEach((bar, index) => {
+    let percent = 0;
+
+    switch (index) {
+      case 0:
+        percent = (userProgress.quizzesCompleted / userProgress.totalQuizzes) * 100;
+        break;
+      case 1:
+        percent = (userProgress.lessonsWatched / userProgress.totalLessons) * 100;
+        break;
+      case 2:
+        percent = (userProgress.badgesUnlocked / userProgress.maxBadges) * 100;
+        break;
+    }
+
+    bar.style.width = `${percent}%`;
   });
+
+  // Optional: Add interactive button or XP effect
+  const welcome = () => {
+    setTimeout(() => {
+      alert("🎉 Welcome back, Learner! Ready to level up?");
+    }, 1000);
+  };
+
+  welcome();
 });
