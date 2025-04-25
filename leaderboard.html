@@ -1,0 +1,60 @@
+<table id="leaderboard">
+  <thead>
+    <tr>
+      <th onclick="sortTable('rank')">Rank</th>
+      <th onclick="sortTable('username')">Username</th>
+      <th onclick="sortTable('score')">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Leaderboard data rows go here -->
+  </tbody>
+</table>
+<script>
+  let users = [
+    { username: 'Alice', score: 120 },
+    { username: 'Bob', score: 90 },
+    { username: 'Charlie', score: 110 }
+  ];
+
+  let currentSort = { key: 'score', asc: false };
+
+  function sortTable(key) {
+    // Toggle ascending/descending
+    if (currentSort.key === key) {
+      currentSort.asc = !currentSort.asc;
+    } else {
+      currentSort = { key: key, asc: false };
+    }
+
+    users.sort((a, b) => {
+      if (key === 'username') {
+        return currentSort.asc
+          ? a.username.localeCompare(b.username)
+          : b.username.localeCompare(a.username);
+      } else {
+        return currentSort.asc
+          ? a[key] - b[key]
+          : b[key] - a[key];
+      }
+    });
+
+    updateTable();
+  }
+
+  function updateTable() {
+    const tbody = document.querySelector("#leaderboard tbody");
+    tbody.innerHTML = "";
+    users.forEach((user, index) => {
+      const row = `<tr>
+        <td>${index + 1}</td>
+        <td>${user.username}</td>
+        <td>${user.score}</td>
+      </tr>`;
+      tbody.innerHTML += row;
+    });
+  }
+
+  // Initial render
+  updateTable();
+</script>
