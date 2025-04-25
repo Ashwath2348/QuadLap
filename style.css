@@ -36,6 +36,33 @@ aside img:hover {
   transform: scale(1.1);
 }
 
+/* Profile bar at top-right */
+.profile-bar {
+  position: absolute;
+  top: 20px;
+  right: 320px; /* Adjusted to sit to the left of the right panel */
+  display: flex;
+  align-items: center;
+  background-color: #1a2a36;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 0 6px rgba(0, 255, 128, 0.2);
+  gap: 10px;
+  z-index: 10;
+}
+
+.profile-bar img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.profile-bar span {
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 /* Main lesson area */
 main {
   flex: 1;
