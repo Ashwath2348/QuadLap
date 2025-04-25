@@ -18,6 +18,7 @@
       color: white;
       display: flex;
       height: 100vh;
+      overflow: hidden;
     }
 
     aside {
@@ -30,17 +31,14 @@
       gap: 25px;
     }
 
-    aside button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
     aside img {
       width: 40px;
       height: 40px;
+      transition: transform 0.2s;
+    }
+
+    aside img:hover {
+      transform: scale(1.1);
     }
 
     main {
@@ -48,21 +46,24 @@
       display: flex;
       flex-direction: column;
       padding: 20px;
+      overflow-y: auto;
     }
 
     .header-bar {
       background-color: #32de84;
-      padding: 10px 20px;
-      border-radius: 10px;
+      padding: 12px 24px;
+      border-radius: 12px;
       font-weight: bold;
       margin-bottom: 30px;
-      color: black;
+      color: #061014;
+      font-size: 18px;
+      box-shadow: 0 0 10px #32de8460;
     }
 
     .lessons {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 25px;
       align-items: center;
     }
 
@@ -76,27 +77,42 @@
       align-items: center;
       justify-content: center;
       font-weight: bold;
+      font-size: 20px;
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.3s, background-color 0.3s;
     }
 
     .lesson-node:hover {
       transform: scale(1.1);
+      background-color: #16334b;
     }
 
     .right-panel {
-      width: 300px;
+      width: 320px;
       background-color: #121e28;
       padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      border-left: 1px solid #22303b;
     }
 
     .panel-card {
       background-color: #0f1820;
-      padding: 15px;
-      border-radius: 10px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0, 255, 128, 0.2);
+    }
+
+    .panel-card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #32de84;
+    }
+
+    .panel-card p {
+      font-size: 14px;
+      color: #bbb;
     }
 
     .progress-bar {
@@ -111,25 +127,43 @@
       height: 100%;
       width: 40%;
       background-color: #32de84;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .buttons {
+      display: flex;
+      margin-top: 10px;
     }
 
     .buttons button {
+      flex: 1;
       padding: 10px;
       border: none;
-      border-radius: 5px;
-      margin-right: 10px;
+      border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
+      font-size: 14px;
     }
 
     .create-btn {
       background-color: #32de84;
       color: black;
+      margin-right: 10px;
     }
 
     .signin-btn {
       background-color: #00bfff;
       color: black;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      left: 90px;
+      right: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #888;
     }
   </style>
 </head>
@@ -175,5 +209,9 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    &copy; 2025 E-Learn Quest. All rights reserved. · <a href="#" style="color:#32de84; text-decoration: none;">Privacy</a> · <a href="#" style="color:#32de84; text-decoration: none;">Terms</a>
+  </footer>
 </body>
 </html>
