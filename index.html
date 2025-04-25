@@ -47,6 +47,7 @@
       flex-direction: column;
       padding: 20px;
       overflow-y: auto;
+      position: relative;
     }
 
     .header-bar {
@@ -95,6 +96,7 @@
       flex-direction: column;
       gap: 20px;
       border-left: 1px solid #22303b;
+      position: relative;
     }
 
     .panel-card {
@@ -165,6 +167,31 @@
       text-align: center;
       color: #888;
     }
+
+    .profile-bar {
+      position: absolute;
+      top: 20px;
+      right: 340px;
+      display: flex;
+      align-items: center;
+      background-color: #1a2a36;
+      padding: 8px 16px;
+      border-radius: 20px;
+      box-shadow: 0 0 6px rgba(0, 255, 128, 0.2);
+      gap: 10px;
+    }
+
+    .profile-bar img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .profile-bar span {
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -177,6 +204,12 @@
     <img src="https://img.icons8.com/emoji/48/person.png" title="Profile" />
     <img src="https://img.icons8.com/emoji/48/ellipsis.png" title="More" />
   </aside>
+
+  <!-- Profile bar -->
+  <div class="profile-bar">
+    <img src="https://img.icons8.com/emoji/48/astronaut.png" alt="User" />
+    <span>Hi, Learner!</span>
+  </div>
 
   <main>
     <div class="header-bar">← Section 1, Unit 1 — Pair letters and sounds</div>
