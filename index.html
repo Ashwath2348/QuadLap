@@ -3,91 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E-Learning Platform</title>
+  <title>E-Learn Quest - Gamified UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0f0f0f;
+      padding: 0;
     }
 
-    .hex-bg {
-      background-image: url('ae5a08cd-f167-4304-955e-ca6d4f3ca6ae.png');
-      background-size: cover;
-      background-position: center;
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0e1b25;
+      color: white;
+      display: flex;
       height: 100vh;
+    }
+
+    aside {
+      width: 80px;
+      background-color: #0a141d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      gap: 25px;
+    }
+
+    aside button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    aside img {
+      width: 40px;
+      height: 40px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .header-bar {
+      background-color: #32de84;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: black;
+    }
+
+    .lessons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .lesson-node {
+      background-color: #101c2c;
+      border: 2px solid #3fff91;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      text-align: center;
-    }
-
-    .content {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-      max-width: 600px;
-    }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      padding: 15px 30px;
-      font-size: 18px;
-      background: linear-gradient(90deg, #00f260, #0575e6);
-      color: white;
-      border: none;
-      border-radius: 10px;
+      font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: transform 0.3s;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #00f260;
+    .lesson-node:hover {
+      transform: scale(1.1);
     }
 
-    footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-      color: #aaa;
-      font-size: 14px;
+    .right-panel {
+      width: 300px;
+      background-color: #121e28;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    footer a {
-      color: #00f260;
-      text-decoration: none;
-      margin: 0 10px;
+    .panel-card {
+      background-color: #0f1820;
+      padding: 15px;
+      border-radius: 10px;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .progress-bar {
+      background-color: #22303b;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 10px;
+      margin-top: 10px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 40%;
+      background-color: #32de84;
+    }
+
+    .buttons button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .create-btn {
+      background-color: #32de84;
+      color: black;
+    }
+
+    .signin-btn {
+      background-color: #00bfff;
+      color: black;
     }
   </style>
 </head>
 <body>
-  <div class="hex-bg">
-    <div class="content">
-      <h1>Welcome to E-Learn</h1>
-      <p>Empower your future through knowledge and skills online.</p>
-      <button class="btn">Get Started</button>
+  <aside>
+    <img src="https://img.icons8.com/emoji/48/home-emoji.png" title="Learn" />
+    <img src="https://img.icons8.com/emoji/48/open-book-emoji.png" title="Letters" />
+    <img src="https://img.icons8.com/emoji/48/shield-emoji.png" title="Leaderboards" />
+    <img src="https://img.icons8.com/emoji/48/treasure-chest.png" title="Quests" />
+    <img src="https://img.icons8.com/emoji/48/shopping-bags.png" title="Shop" />
+    <img src="https://img.icons8.com/emoji/48/person.png" title="Profile" />
+    <img src="https://img.icons8.com/emoji/48/ellipsis.png" title="More" />
+  </aside>
+
+  <main>
+    <div class="header-bar">← Section 1, Unit 1 — Pair letters and sounds</div>
+    <div class="lessons">
+      <div class="lesson-node">Start</div>
+      <div class="lesson-node" style="opacity: 0.4;">★</div>
+      <div class="lesson-node" style="opacity: 0.4;">★</div>
+      <div class="lesson-node" style="opacity: 0.4;">🎁</div>
+      <div class="lesson-node" style="opacity: 0.4;">🏅</div>
+    </div>
+  </main>
+
+  <div class="right-panel">
+    <div class="panel-card">
+      <h3>🏆 Unlock Leaderboards!</h3>
+      <p>Complete 10 more lessons to start competing</p>
+    </div>
+    <div class="panel-card">
+      <h3>⚡ Daily Quests</h3>
+      <p>Earn 10 XP</p>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+    <div class="panel-card">
+      <h3>Create a profile to save your progress!</h3>
+      <div class="buttons">
+        <button class="create-btn">Create a Profile</button>
+        <button class="signin-btn">Sign In</button>
+      </div>
     </div>
   </div>
-
-  <footer>
-    &copy; 2025 E-Learn Platform · <a href="#">Privacy</a> · <a href="#">Terms</a>
-  </footer>
 </body>
 </html>
