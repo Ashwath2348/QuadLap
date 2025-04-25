@@ -1,222 +1,45 @@
-/* Reset and base styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #0e1b25;
-  color: white;
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 20px;
 }
 
-/* Sidebar navigation */
-aside {
-  width: 80px;
-  background-color: #0a141d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-  gap: 25px;
+h1, h2 {
+  color: #333;
 }
 
-aside img {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-aside img:hover {
-  transform: scale(1.1);
-}
-
-/* Main lesson area */
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.header-bar {
-  background-color: #32de84;
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 30px;
-  font-size: 18px;
-  box-shadow: 0 0 10px #32de8460;
-}
-
-/* Lesson nodes */
-.lessons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
-
-.lesson-node {
-  background-color: #101c2c;
-  border: 2px solid #3fff91;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.lesson-node:hover {
-  transform: scale(1.1);
-  background-color: #16334b;
-}
-
-/* Right panel */
-.right-panel {
-  width: 320px;
-  background-color: #121e28;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border-left: 1px solid #22303b;
-}
-
-.panel-card {
-  background-color: #0f1820;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 255, 128, 0.2);
-}
-
-.panel-card h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #32de84;
-}
-
-.panel-card p {
-  font-size: 14px;
-  color: #bbb;
-}
-
-/* XP Progress Bar */
-.progress-bar {
-  background-color: #22303b;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 10px;
-  margin-top: 10px;
-}
-
-.progress {
-  height: 100%;
-  width: 40%;
-  background-color: #32de84;
-  transition: width 0.3s ease-in-out;
-}
-
-/* Profile buttons */
-.buttons {
-  display: flex;
-  margin-top: 10px;
-}
-
-.buttons button {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.create-btn {
-  background-color: #32de84;
-  color: black;
-  margin-right: 10px;
-}
-
-.signin-btn {
-  background-color: #00bfff;
-  color: black;
-}
-
-/* Profile dropdown at top-right */
-.profile-bar {
-  position: fixed;
-  top: 10px;
-  right: 20px;
-  z-index: 999;
-}
-
-.profile-avatar {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.profile-avatar img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 45px;
-  right: 0;
-  background-color: #1c2a35;
-  padding: 10px;
+.language-card, .module {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  min-width: 180px;
-  color: white;
-  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.dropdown p {
-  margin: 5px 0;
+.language-card:hover {
+  cursor: pointer;
+  background: #e0f7ff;
 }
 
-.dropdown a {
-  color: #32de84;
-  text-decoration: none;
+.module {
+  display: none;
 }
 
-.profile-avatar:hover .dropdown {
-  display: block;
+pre {
+  background: #f0f0f0;
+  padding: 10px;
+  overflow-x: auto;
 }
 
-/* Footer */
-footer {
-  position: fixed;
-  bottom: 10px;
-  left: 90px;
-  right: 20px;
-  font-size: 12px;
+table.leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+table.leaderboard th,
+table.leaderboard td {
+  border: 1px solid #ccc;
+  padding: 10px;
   text-align: center;
-  color: #888;
-  z-index: 1000;
-}
-
-footer a {
-  color: #32de84;
-  text-decoration: none;
-  margin: 0 5px;
 }
