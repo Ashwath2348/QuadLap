@@ -70,9 +70,9 @@
     .lesson-node {
       background-color: #101c2c;
       border: 2px solid #3fff91;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
+      width: 160px;
+      height: 100px;
+      border-radius: 12px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -85,8 +85,14 @@
     }
 
     .lesson-node:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       background-color: #16334b;
+    }
+
+    .lesson-node img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 8px;
     }
 
     .right-panel {
@@ -185,10 +191,22 @@
     <div class="header-bar">🚀 Programming Languages</div>
 
     <div class="lessons">
-      <div class="lesson-node" title="Java">☕<br>Java</div>
-      <div class="lesson-node" title="Python">🐍<br>Python</div>
-      <div class="lesson-node" title="C">💻<br>C</div>
-      <div class="lesson-node" title="C++">🖥️<br>C++</div>
+      <div class="lesson-node" title="Java">
+        <img src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="Java Logo" />
+        Java
+      </div>
+      <div class="lesson-node" title="Python">
+        <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python Logo" />
+        Python
+      </div>
+      <div class="lesson-node" title="C">
+        <img src="https://img.icons8.com/color/48/c-programming.png" alt="C Logo" />
+        C
+      </div>
+      <div class="lesson-node" title="C++">
+        <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="C++ Logo" />
+        C++
+      </div>
     </div>
   </main>
 
