@@ -3,56 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E-Learn Quest - Gamified UI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>E-Learning Platform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hex-bg {
+      background-image: url('ae5a08cd-f167-4304-955e-ca6d4f3ca6ae.png'); /* Update path if needed */
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .content {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 50px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+      max-width: 600px;
+    }
+
+    .content h1 {
+      font-size: clamp(2rem, 5vw, 48px);
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #00f260, #0575e6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .content p {
+      font-size: clamp(1rem, 2.5vw, 20px);
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .btn {
+      padding: 15px 40px;
+      font-size: 1rem;
+      background: linear-gradient(90deg, #00f260, #0575e6);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00f260, 0 0 25px #0575e6;
+    }
+  </style>
 </head>
 <body>
-  <aside>
-    <img src="https://img.icons8.com/emoji/48/home-emoji.png" title="Learn" />
-    <img src="https://img.icons8.com/emoji/48/open-book-emoji.png" title="Letters" />
-    <img src="https://img.icons8.com/emoji/48/shield-emoji.png" title="Leaderboards" />
-    <img src="https://img.icons8.com/emoji/48/treasure-chest.png" title="Quests" />
-    <img src="https://img.icons8.com/emoji/48/shopping-bags.png" title="Shop" />
-    <img src="https://img.icons8.com/emoji/48/person.png" title="Profile" />
-    <img src="https://img.icons8.com/emoji/48/ellipsis.png" title="More" />
-  </aside>
-
-  <main>
-    <div class="header-bar">← Section 1, Unit 1 — Pair letters and sounds</div>
-    <div class="lessons">
-      <div class="lesson-node">Start</div>
-      <div class="lesson-node" style="opacity: 0.4;">★</div>
-      <div class="lesson-node" style="opacity: 0.4;">★</div>
-      <div class="lesson-node" style="opacity: 0.4;">🎁</div>
-      <div class="lesson-node" style="opacity: 0.4;">🏅</div>
+  <div class="hex-bg">
+    <div class="content">
+      <h1>Welcome to E-Learn</h1>
+      <p>Empower your future through knowledge and skills online.</p>
+      <button class="btn" aria-label="Get started with E-Learn">Get Started</button>
     </div>
-  </main>
-
-  <div class="right-panel">
-    <div class="panel-card">
-      <h3>🏆 Unlock Leaderboards!</h3>
-      <p>Complete 10 more lessons to start competing</p>
-    </div>
-    <div class="panel-card">
-      <h3>⚡ Daily Quests</h3>
-      <p>Earn 10 XP</p>
-      <div class="progress-bar">
-        <div class="progress"></div>
-      </div>
-    </div>
-    <div class="panel-card">
-      <h3>Create a profile to save your progress!</h3>
-      <div class="buttons">
-        <button class="create-btn">Create a Profile</button>
-        <button class="signin-btn">Sign In</button>
-      </div>
-    </div>
-    <footer class="footer">
-      <p>&copy; 2025 E-Learn Quest · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    document.querySelector(".btn").addEventListener("click", () => {
+      alert("Redirecting to your learning dashboard...");
+      // window.location.href = "dashboard.html"; // Uncomment and replace with actual URL
+    });
+  </script>
 </body>
 </html>
