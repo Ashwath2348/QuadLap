@@ -74,12 +74,14 @@
       height: 80px;
       border-radius: 50%;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 16px;
       cursor: pointer;
       transition: transform 0.3s, background-color 0.3s;
+      text-align: center;
     }
 
     .lesson-node:hover {
@@ -167,6 +169,7 @@
     }
   </style>
 </head>
+
 <body>
   <aside>
     <img src="https://img.icons8.com/emoji/48/home-emoji.png" title="Learn" />
@@ -180,12 +183,24 @@
 
   <main>
     <div class="header-bar">← Section 1, Unit 1 — Pair letters and sounds</div>
+
     <div class="lessons">
       <div class="lesson-node">Start</div>
       <div class="lesson-node" style="opacity: 0.4;">★</div>
       <div class="lesson-node" style="opacity: 0.4;">★</div>
       <div class="lesson-node" style="opacity: 0.4;">🎁</div>
       <div class="lesson-node" style="opacity: 0.4;">🏅</div>
+    </div>
+
+    <br><br>
+
+    <div class="header-bar">🚀 Programming Languages</div>
+
+    <div class="lessons">
+      <div class="lesson-node" title="Java">☕<br>Java</div>
+      <div class="lesson-node" title="Python">🐍<br>Python</div>
+      <div class="lesson-node" title="C">💻<br>C</div>
+      <div class="lesson-node" title="C++">🖥️<br>C++</div>
     </div>
   </main>
 
@@ -194,30 +209,6 @@
       <h3>🏆 Unlock Leaderboards!</h3>
       <p>Complete 10 more lessons to start competing</p>
     </div>
-    <div class="panel-card" id="leaderboard-card">
-  <h3>🏆 Leaderboard</h3>
-  <table id="leaderboard">
-    <thead>
-      <tr>
-        <th onclick="sortTable('rank')">Rank <span id="indicator-rank"></span></th>
-        <th onclick="sortTable('username')">Username <span id="indicator-username"></span></th>
-        <th onclick="sortTable('score')">Score <span id="indicator-score"></span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Filled by JS -->
-    </tbody>
-  </table>
-</div>
-    // Simulate completed lessons (replace with real logic)
-const lessonsCompleted = 10;
-
-if (lessonsCompleted >= 10) {
-  document.getElementById('locked-message').style.display = 'none';
-  document.getElementById('leaderboard-card').style.display = 'block';
-  updateTable();
-  updateIndicators();
-}
     <div class="panel-card">
       <h3>⚡ Daily Quests</h3>
       <p>Earn 10 XP</p>
@@ -235,7 +226,9 @@ if (lessonsCompleted >= 10) {
   </div>
 
   <footer>
-    &copy; 2025 E-Learn Quest. All rights reserved. · <a href="#" style="color:#32de84; text-decoration: none;">Privacy</a> · <a href="#" style="color:#32de84; text-decoration: none;">Terms</a>
+    &copy; 2025 E-Learn Quest. All rights reserved. · 
+    <a href="#" style="color:#32de84; text-decoration: none;">Privacy</a> · 
+    <a href="#" style="color:#32de84; text-decoration: none;">Terms</a>
   </footer>
 </body>
 </html>
