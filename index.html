@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E-Learn Quest - Programming Languages</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Learn Quest - Java Modules</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,8 +17,8 @@
       background-color: #0e1b25;
       color: white;
       display: flex;
+      flex-direction: column;
       height: 100vh;
-      overflow: hidden;
     }
 
     main {
@@ -40,171 +40,103 @@
       box-shadow: 0 0 10px #32de8460;
     }
 
-    .lessons {
+    .lessons, .modules {
       display: flex;
-      flex-direction: column;
-      gap: 25px;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 20px;
     }
 
-    .lesson-node {
+    .lesson-node, .module-node {
       background-color: #101c2c;
-      border: 2px solid #3fff91;
-      width: 160px;
-      height: 100px;
-      border-radius: 12px;
+      border: 3px solid #3fff91;
+      width: 200px;
+      height: 200px;
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 20px;
       cursor: pointer;
       transition: transform 0.3s, background-color 0.3s;
       text-align: center;
     }
 
-    .lesson-node:hover {
+    .lesson-node:hover, .module-node:hover {
       transform: scale(1.05);
       background-color: #16334b;
     }
 
-    .lesson-node img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 8px;
+    .lesson-node img, .module-node img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 12px;
     }
 
-    .right-panel {
-      width: 320px;
-      background-color: #121e28;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      border-left: 1px solid #22303b;
-    }
-
-    .panel-card {
-      background-color: #0f1820;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0, 255, 128, 0.2);
-    }
-
-    .panel-card h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-      color: #32de84;
-    }
-
-    .panel-card p {
-      font-size: 14px;
-      color: #bbb;
-    }
-
-    .progress-bar {
-      background-color: #22303b;
-      border-radius: 10px;
-      overflow: hidden;
-      height: 10px;
-      margin-top: 10px;
-    }
-
-    .progress {
-      height: 100%;
-      width: 40%;
-      background-color: #32de84;
-      transition: width 0.3s ease-in-out;
-    }
-
-    .buttons {
-      display: flex;
-      margin-top: 10px;
-    }
-
-    .buttons button {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
+    .back-button {
+      margin-bottom: 20px;
       cursor: pointer;
-      font-size: 14px;
+      color: #32de84;
+      font-weight: bold;
+      font-size: 16px;
     }
 
-    .create-btn {
-      background-color: #32de84;
-      color: black;
-      margin-right: 10px;
-    }
-
-    .signin-btn {
-      background-color: #00bfff;
-      color: black;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      left: 20px;
-      right: 20px;
-      font-size: 12px;
-      text-align: center;
-      color: #888;
-    }
   </style>
 </head>
 
 <body>
-  <main>
-    <div class="header-bar">🚀 Programming Languages</div>
 
-    <div class="lessons">
-      <div class="lesson-node" title="Java">
-        <img src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="Java Logo" />
-        Java
+  <main>
+    <div id="home-screen">
+      <div class="header-bar">🚀 Programming Languages</div>
+      <div class="lessons">
+        <div class="lesson-node" onclick="openJavaModules()" title="Java">
+          <img src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="Java Logo" />
+          Java
+        </div>
+        <div class="lesson-node" title="Python">
+          <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python Logo" />
+          Python
+        </div>
+        <div class="lesson-node" title="C">
+          <img src="https://img.icons8.com/color/48/c-programming.png" alt="C Logo" />
+          C
+        </div>
+        <div class="lesson-node" title="C++">
+          <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="C++ Logo" />
+          C++
+        </div>
       </div>
-      <div class="lesson-node" title="Python">
-        <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python Logo" />
-        Python
-      </div>
-      <div class="lesson-node" title="C">
-        <img src="https://img.icons8.com/color/48/c-programming.png" alt="C Logo" />
-        C
-      </div>
-      <div class="lesson-node" title="C++">
-        <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="C++ Logo" />
-        C++
+    </div>
+
+    <div id="java-screen" style="display: none;">
+      <div class="back-button" onclick="goBack()">← Back</div>
+      <div class="header-bar">☕ Java Modules</div>
+      <div class="modules">
+        <div class="module-node">Java</div>
+        <div class="module-node">Module 1</div>
+        <div class="module-node">Module 2</div>
+        <div class="module-node">Module 3</div>
+        <div class="module-node">Module 4</div>
+        <div class="module-node">Module 5</div>
       </div>
     </div>
   </main>
 
-  <div class="right-panel">
-    <div class="panel-card">
-      <h3>🏆 Unlock Leaderboards!</h3>
-      <p>Complete 10 more lessons to start competing</p>
-    </div>
-    <div class="panel-card">
-      <h3>⚡ Daily Quests</h3>
-      <p>Earn 10 XP</p>
-      <div class="progress-bar">
-        <div class="progress"></div>
-      </div>
-    </div>
-    <div class="panel-card">
-      <h3>Create a profile to save your progress!</h3>
-      <div class="buttons">
-        <button class="create-btn">Create a Profile</button>
-        <button class="signin-btn">Sign In</button>
-      </div>
-    </div>
-  </div>
+  <script>
+    function openJavaModules() {
+      document.getElementById('home-screen').style.display = 'none';
+      document.getElementById('java-screen').style.display = 'block';
+    }
 
-  <footer>
-    &copy; 2025 E-Learn Quest. All rights reserved. · 
-    <a href="#" style="color:#32de84; text-decoration: none;">Privacy</a> · 
-    <a href="#" style="color:#32de84; text-decoration: none;">Terms</a>
-  </footer>
+    function goBack() {
+      document.getElementById('java-screen').style.display = 'none';
+      document.getElementById('home-screen').style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
