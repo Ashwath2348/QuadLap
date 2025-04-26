@@ -8,7 +8,7 @@
   <!-- TailwindCSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Animate.css -->
+  <!-- Animate.css for small animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
   <!-- Google Fonts -->
@@ -31,15 +31,6 @@
     .glow-btn:hover {
       box-shadow: 0 0 10px #00ffe5, 0 0 20px #00ffe5, 0 0 30px #00ffe5;
     }
-    .language-card:hover {
-      background: rgba(255, 255, 255, 0.15);
-      cursor: pointer;
-    }
-    .module-card:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-5px);
-      transition: all 0.3s;
-    }
   </style>
 
 </head>
@@ -52,30 +43,61 @@
     <p class="text-gray-300 mt-2">Gamify your learning. Earn points. Unlock levels. Master skills.</p>
   </div>
 
-  <!-- Main Content -->
-  <div id="mainContent" class="flex flex-col md:flex-row justify-center w-full gap-8">
+  <div class="flex flex-col md:flex-row justify-center w-full gap-8">
 
     <!-- Left Sidebar -->
     <div class="glass p-6 w-full md:w-1/4 space-y-4">
       <h2 class="text-xl font-bold mb-4">Coding Languages</h2>
 
-      <!-- Language Items -->
-      <div onclick="openModules('Python')" class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg language-card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6" alt="Python"/>
-        <span>Python</span>
+      <div class="flex flex-col gap-3">
+        <!-- Python Button -->
+        <div id="pythonButton" class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6" alt="Python"/>
+          <span>Python</span>
+        </div>
+
+        <!-- Python Modules -->
+        <div id="pythonModules" class="hidden flex flex-col gap-2 ml-8 text-sm">
+          <a href="python.html" class="hover:text-green-400">Module 1</a>
+          <a href="#" class="hover:text-green-400">Module 2</a>
+          <a href="#" class="hover:text-green-400">Module 3</a>
+          <a href="#" class="hover:text-green-400">Module 4</a>
+          <a href="#" class="hover:text-green-400">Module 5</a>
+        </div>
+
+        <!-- Other Languages -->
+        <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-6 h-6" alt="JavaScript"/>
+          <span>JavaScript</span>
+        </div>
+        <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-6 h-6" alt="Java"/>
+          <span>Java</span>
+        </div>
+        <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="w-6 h-6" alt="C++"/>
+          <span>C++</span>
+        </div>
+        <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="w-6 h-6" alt="C#"/>
+          <span>C#</span>
+        </div>
+        <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" class="w-6 h-6" alt="Ruby"/>
+          <span>Ruby</span>
+        </div>
+        <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" class="w-6 h-6" alt="Swift"/>
+          <span>Swift</span>
+        </div>
+        <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" class="w-6 h-6" alt="Go"/>
+          <span>Go</span>
+        </div>
       </div>
-      <div onclick="openModules('JavaScript')" class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg language-card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-6 h-6" alt="JavaScript"/>
-        <span>JavaScript</span>
-      </div>
-      <div onclick="openModules('Java')" class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg language-card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-6 h-6" alt="Java"/>
-        <span>Java</span>
-      </div>
-      <!-- (add more as needed) -->
     </div>
 
-    <!-- Center Content -->
+    <!-- Main Content -->
     <div class="flex flex-col w-full md:w-2/4 space-y-8">
 
       <div class="glass p-6 flex flex-col space-y-4">
@@ -137,47 +159,14 @@
 
   </div>
 
-  <!-- Modules Page -->
-  <div id="modulesPage" class="hidden flex flex-col w-full max-w-4xl space-y-8 animate__animated animate__fadeIn">
-
-    <button onclick="goBack()" class="text-left text-blue-300 hover:underline">
-      ← Back to Dashboard
-    </button>
-
-    <h2 id="selectedLanguage" class="text-3xl font-bold text-center mb-6"></h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="glass p-6 module-card">
-        <h3 class="text-xl font-bold">Module 1: Introduction</h3>
-        <p class="text-gray-300 mt-2 text-sm">Start with basics and understand foundations.</p>
-      </div>
-      <div class="glass p-6 module-card">
-        <h3 class="text-xl font-bold">Module 2: Core Concepts</h3>
-        <p class="text-gray-300 mt-2 text-sm">Dive deeper into loops, conditions, functions.</p>
-      </div>
-      <div class="glass p-6 module-card">
-        <h3 class="text-xl font-bold">Module 3: Projects</h3>
-        <p class="text-gray-300 mt-2 text-sm">Build your first small projects and apps.</p>
-      </div>
-      <div class="glass p-6 module-card">
-        <h3 class="text-xl font-bold">Module 4: Advanced Topics</h3>
-        <p class="text-gray-300 mt-2 text-sm">Master advanced tricks and efficient coding.</p>
-      </div>
-      <div class="glass p-6 module-card">
-        <h3 class="text-xl font-bold">Module 5: Final Test</h3>
-        <p class="text-gray-300 mt-2 text-sm">Test your knowledge and earn certificate.</p>
-      </div>
-    </div>
-
-  </div>
-
   <!-- Footer -->
   <footer class="text-gray-400 text-xs mt-10">
     © 2025 E-Learn Quest — Level Up Your Mind. All rights reserved.
   </footer>
 
-  <!-- Script for animations and toggling -->
+  <!-- Scripts -->
   <script>
+    // Animate XP Progress Bar
     let xp = 0;
     const targetXp = 1300;
     const xpValue = document.getElementById('xpValue');
@@ -193,16 +182,14 @@
     }
     animateXP();
 
-    function openModules(language) {
-      document.getElementById('mainContent').classList.add('hidden');
-      document.getElementById('modulesPage').classList.remove('hidden');
-      document.getElementById('selectedLanguage').innerText = `📚 ${language} Course Modules`;
-    }
+    // Toggle Python Modules
+    const pythonButton = document.getElementById('pythonButton');
+    const pythonModules = document.getElementById('pythonModules');
 
-    function goBack() {
-      document.getElementById('modulesPage').classList.add('hidden');
-      document.getElementById('mainContent').classList.remove('hidden');
-    }
+    pythonButton.addEventListener('click', () => {
+      pythonModules.classList.toggle('hidden');
+      pythonModules.classList.add('animate__animated', 'animate__fadeInDown');
+    });
   </script>
 
 </body>
