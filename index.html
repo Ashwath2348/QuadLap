@@ -170,6 +170,70 @@
       font-weight: bold;
       font-size: 16px;
     }
+
+    /* Login Modal */
+    .login-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .login-box {
+      background-color: #101c2c;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px #32de8420;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .login-box h2 {
+      color: #32de84;
+      margin-bottom: 20px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1b2b3a;
+      color: white;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #32de84;
+      color: #061014;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -230,12 +294,24 @@
       <div class="card">
         <h3>📋 Create a profile to save your progress!</h3>
         <div class="profile-buttons">
-          <button class="create-profile">Create Profile</button>
+          <button class="create-profile" onclick="openLogin()">Create Profile</button>
           <button class="sign-in">Sign In</button>
         </div>
       </div>
     </div>
   </aside>
+
+  <!-- Login Modal -->
+  <div id="login-modal" class="login-modal">
+    <div class="login-box">
+      <button class="close-btn" onclick="closeLogin()">×</button>
+      <h2>Create Profile</h2>
+      <input type="text" placeholder="Username">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button>Register</button>
+    </div>
+  </div>
 
   <script>
     function openJavaModules() {
@@ -246,6 +322,14 @@
     function goBack() {
       document.getElementById('java-screen').style.display = 'none';
       document.getElementById('home-screen').style.display = 'block';
+    }
+
+    function openLogin() {
+      document.getElementById('login-modal').style.display = 'flex';
+    }
+
+    function closeLogin() {
+      document.getElementById('login-modal').style.display = 'none';
     }
   </script>
 
