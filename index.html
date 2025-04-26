@@ -6,12 +6,12 @@
   <title>E-Learn Quest - Java Modules</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Basic Reset */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #0e1b25;
@@ -182,18 +182,25 @@
       display: none;
       align-items: center;
       justify-content: center;
+      animation: fadeIn 0.5s;
       z-index: 1000;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     .login-box {
       background-color: #101c2c;
       padding: 40px;
       border-radius: 16px;
-      box-shadow: 0 0 15px #32de8420;
+      box-shadow: 0 0 20px #32de8430;
       width: 350px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
 
     .login-box h2 {
@@ -203,12 +210,13 @@
 
     .login-box input {
       width: 100%;
-      padding: 10px;
+      padding: 10px 35px 10px 10px;
       margin-bottom: 15px;
       border: none;
       border-radius: 8px;
       background-color: #1b2b3a;
       color: white;
+      position: relative;
     }
 
     .login-box button {
@@ -228,11 +236,23 @@
       background: none;
       border: none;
       color: white;
-      font-size: 24px;
+      font-size: 28px;
       position: absolute;
-      top: 20px;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .eye-icon {
+      position: absolute;
+      top: 195px;
       right: 30px;
       cursor: pointer;
+      font-size: 18px;
+    }
+
+    .eye-icon:hover {
+      color: #32de84;
     }
   </style>
 </head>
@@ -308,7 +328,10 @@
       <h2>Create Profile</h2>
       <input type="text" placeholder="Username">
       <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
+      <div style="position:relative;width:100%;">
+        <input type="password" id="passwordInput" placeholder="Password">
+        <span class="eye-icon" onclick="togglePassword()">👁️‍🗨️</span>
+      </div>
       <button>Register</button>
     </div>
   </div>
@@ -330,6 +353,15 @@
 
     function closeLogin() {
       document.getElementById('login-modal').style.display = 'none';
+    }
+
+    function togglePassword() {
+      var pwd = document.getElementById('passwordInput');
+      if (pwd.type === "password") {
+        pwd.type = "text";
+      } else {
+        pwd.type = "password";
+      }
     }
   </script>
 
