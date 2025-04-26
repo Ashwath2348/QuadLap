@@ -78,6 +78,7 @@
       background-color: #32de84;
       width: 40%;
       height: 100%;
+      transition: width 0.5s ease;
     }
 
     .profile-buttons {
@@ -286,6 +287,7 @@
       <div class="back-button" onclick="goBack()">← Back</div>
       <div class="header-bar">☕ Java Modules</div>
       <div class="modules">
+        <div class="module-node">Java</div>
         <div class="module-node">Module 1</div>
         <div class="module-node">Module 2</div>
         <div class="module-node">Module 3</div>
@@ -295,18 +297,31 @@
     </div>
   </main>
 
+  <!-- RIGHT SIDEBAR -->
   <aside class="right-sidebar">
     <div class="info-cards">
+
       <div class="card">
-        <h3>🏆 Unlock Leaderboards!</h3>
-        <p>Complete 10 more lessons to start competing</p>
+        <h3>🧠 Brain Boost</h3>
+        <p>Completed 3 of 5 quizzes</p>
+        <div class="progress-bar">
+          <div class="progress-bar-fill" style="width: 60%;"></div>
+        </div>
       </div>
 
       <div class="card">
-        <h3>⚡ Daily Quests</h3>
-        <p>Earn 10 XP</p>
+        <h3>📚 Learn & Earn</h3>
+        <p>Watched 4 of 10 lessons</p>
         <div class="progress-bar">
-          <div class="progress-bar-fill"></div>
+          <div class="progress-bar-fill" style="width: 40%;"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🏆 Achievement</h3>
+        <p>5 badges unlocked</p>
+        <div class="progress-bar">
+          <div class="progress-bar-fill" style="width: 80%;"></div>
         </div>
       </div>
 
@@ -317,10 +332,11 @@
           <button class="sign-in">Sign In</button>
         </div>
       </div>
+
     </div>
   </aside>
 
-  <!-- Login Modal -->
+  <!-- LOGIN MODAL -->
   <div id="login-modal" class="login-modal">
     <div class="login-box">
       <button class="close-btn" onclick="closeLogin()">×</button>
