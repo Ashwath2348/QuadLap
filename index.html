@@ -18,6 +18,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
     header {
       text-align: center;
@@ -40,6 +41,10 @@
       padding: 20px;
       gap: 20px;
     }
+    .left-panel, .middle-panel, .right-panel {
+      display: flex;
+      flex-direction: column;
+    }
     .left-panel {
       flex: 1;
       max-width: 250px;
@@ -50,6 +55,8 @@
       padding: 20px;
       box-shadow: 0 0 15px rgba(50, 222, 132, 0.15);
       height: fit-content;
+      position: sticky;
+      top: 20px;
     }
     .middle-panel {
       flex: 3;
@@ -59,17 +66,10 @@
       border-radius: 20px;
       padding: 30px;
       box-shadow: 0 0 15px rgba(50, 222, 132, 0.12);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 400px;
+      gap: 30px;
     }
     .right-panel {
       flex: 1;
-      display: flex;
-      flex-direction: column;
       gap: 20px;
       align-items: flex-end;
     }
@@ -78,6 +78,8 @@
       flex-direction: column;
       gap: 20px;
       width: 280px;
+      position: sticky;
+      top: 20px;
     }
     .card {
       background: rgba(255, 255, 255, 0.05);
@@ -90,9 +92,10 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      transition: box-shadow 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s;
     }
     .card:hover {
+      transform: translateY(-5px);
       box-shadow: 0 0 25px rgba(50, 222, 132, 0.4);
     }
     .card-title {
@@ -114,7 +117,7 @@
     }
     .progress-fill {
       height: 100%;
-      transition: width 0.5s ease;
+      transition: width 1s ease;
     }
     .brain-boost { background: linear-gradient(to right, #ff80ab, #ff4081); }
     .learn-earn { background: linear-gradient(to right, #00e676, #00c853); }
@@ -143,6 +146,41 @@
     .language-item:hover {
       background: rgba(255, 255, 255, 0.15);
     }
+    .section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 20px;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #32de84;
+    }
+    .goal-list, .leaderboard {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .goal-item, .leader-item {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+    }
     .footer {
       text-align: center;
       font-size: 14px;
@@ -164,42 +202,49 @@
 </header>
 
 <div class="main-container">
-  
+
   <!-- Left Sidebar -->
   <div class="left-panel">
     <h2 style="font-size: 20px; margin-bottom: 15px;">Coding Languages</h2>
     <ul class="languages-list">
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python
-      </li>
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"> JavaScript
-      </li>
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"> Java
-      </li>
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"> C++
-      </li>
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"> C#
-      </li>
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby"> Ruby
-      </li>
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift"> Swift
-      </li>
-      <li class="language-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go"> Go
-      </li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python</li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"> JavaScript</li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"> Java</li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"> C++</li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"> C#</li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby"> Ruby</li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift"> Swift</li>
+      <li class="language-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go"> Go</li>
     </ul>
   </div>
 
-  <!-- Middle Section -->
+  <!-- Middle Panel -->
   <div class="middle-panel">
-    <h2 style="font-size: 28px; margin-bottom: 20px;">Welcome to Your Learning Journey!</h2>
-    <p style="font-size: 18px; color: #c0c0c0;">Track your skills, complete quests, and level up!</p>
+    <div class="section">
+      <div class="section-title">🎯 Active Quests</div>
+      <ul class="goal-list">
+        <li class="goal-item">Complete Python Basics<span>✔️</span></li>
+        <li class="goal-item">Watch 2 React tutorials<span>⏳</span></li>
+        <li class="goal-item">Solve 5 coding challenges<span>⏳</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📅 Daily Goals</div>
+      <ul class="goal-list">
+        <li class="goal-item">Practice algorithms<span>✔️</span></li>
+        <li class="goal-item">Learn one new JS method<span>⏳</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🏆 Leaderboard</div>
+      <ul class="leaderboard">
+        <li class="leader-item">Alex <span>1200 pts</span></li>
+        <li class="leader-item">Jordan <span>1100 pts</span></li>
+        <li class="leader-item">Sam <span>1050 pts</span></li>
+      </ul>
+    </div>
   </div>
 
   <!-- Right Sidebar -->
@@ -207,9 +252,7 @@
     <div class="cards-container">
 
       <div class="card">
-        <div class="card-title">
-          🧠 Brain Boost
-        </div>
+        <div class="card-title">🧠 Brain Boost</div>
         <div class="card-subtitle">Completed 3 of 5 quizzes</div>
         <div class="progress-track">
           <div class="progress-fill brain-boost" style="width: 60%;"></div>
@@ -217,9 +260,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title">
-          📚 Learn & Earn
-        </div>
+        <div class="card-title">📚 Learn & Earn</div>
         <div class="card-subtitle">Watched 4 of 10 lessons</div>
         <div class="progress-track">
           <div class="progress-fill learn-earn" style="width: 40%;"></div>
@@ -227,9 +268,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title">
-          🏆 Achievement
-        </div>
+        <div class="card-title">🏆 Achievement</div>
         <div class="card-subtitle">5 badges unlocked</div>
         <div class="progress-track">
           <div class="progress-fill achievement" style="width: 80%;"></div>
