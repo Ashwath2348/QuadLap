@@ -3,43 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chatbot Sidebar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>E-Learn Quest | Level Up Your Mind</title>
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate.css for small animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #111;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
       color: #fff;
-      height: 100vh;
-      overflow: hidden;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    .glow-btn:hover {
+      box-shadow: 0 0 10px #00ffe5, 0 0 20px #00ffe5, 0 0 30px #00ffe5;
     }
 
-    /* Chatbot Button */
-    .chatbot-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      padding: 10px 20px;
-      background: #0078D4;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    /* Sidebar */
+    /* Chatbot Sidebar */
     .chatbot-sidebar {
       position: fixed;
       top: 0;
       right: -400px;
       width: 400px;
       height: 100vh;
-      background: rgba(30, 30, 30, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background-color: #1e1e1e;
       box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
       transition: right 0.3s ease;
       display: flex;
@@ -135,11 +135,55 @@
     .chat-input button:hover {
       background-color: #005fa3;
     }
+
+    /* Chatbot Button */
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #0078D4;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 1000;
+    }
   </style>
 </head>
-<body>
 
-  <!-- Toggle Button -->
+<body class="flex flex-col items-center p-6">
+
+  <!-- Header -->
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold text-green-400 animate__animated animate__fadeInDown">E-Learn Quest</h1>
+    <p class="text-gray-300 mt-2">Gamify your learning. Earn points. Unlock levels. Master skills.</p>
+  </div>
+
+  <div class="flex flex-col md:flex-row justify-center w-full gap-8">
+
+    <!-- Left Sidebar -->
+    <div class="glass p-6 w-full md:w-1/4 space-y-4">
+      <h2 class="text-xl font-bold mb-4">Coding Languages</h2>
+      <!-- (Your existing code for left sidebar here) -->
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col w-full md:w-2/4 space-y-8">
+      <div class="glass p-6 flex flex-col space-y-4">
+        <!-- (Your existing code for the main content here) -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-gray-400 text-xs mt-10">
+    © 2025 E-Learn Quest — Level Up Your Mind. All rights reserved.
+  </footer>
+
+  <!-- Chatbot Button -->
   <button class="chatbot-toggle" onclick="toggleChatbot()">Chat with AI</button>
 
   <!-- Sidebar Chatbot -->
@@ -158,6 +202,7 @@
   </div>
 
   <script>
+    // Chatbot Sidebar Toggle
     const chatbot = document.getElementById("chatbot");
     const chatWindow = document.getElementById("chat-window");
     const chatInput = document.getElementById("chat-input");
@@ -199,5 +244,6 @@
       }
     });
   </script>
+
 </body>
 </html>
