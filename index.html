@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -202,11 +203,11 @@
       const msg = chatInput.value.trim();
       if (msg) {
         const userMsg = document.createElement('p');
-        userMsg.innerHTML = <strong>You:</strong> ${msg};
+        userMsg.innerHTML = `<strong>You:</strong> ${msg}`;
         chatHistory.appendChild(userMsg);
 
         const botReply = document.createElement('p');
-        botReply.innerHTML = <strong>Copilot:</strong> I'm still learning! More features coming soon.;
+        botReply.innerHTML = `<strong>Copilot:</strong> I'm still learning! More features coming soon.`;
         chatHistory.appendChild(botReply);
 
         chatInput.value = '';
