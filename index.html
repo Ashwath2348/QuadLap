@@ -32,7 +32,6 @@
       box-shadow: 0 0 10px #00ffe5, 0 0 20px #00ffe5, 0 0 30px #00ffe5;
     }
   </style>
-
 </head>
 
 <body class="flex flex-col items-center p-6">
@@ -48,14 +47,12 @@
     <!-- Left Sidebar -->
     <div class="glass p-6 w-full md:w-1/4 space-y-4">
       <h2 class="text-xl font-bold mb-4">Coding Languages</h2>
-
       <div class="flex flex-col gap-3">
         <!-- Python Button -->
         <div id="pythonButton" class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6" alt="Python"/>
           <span>Python</span>
         </div>
-
         <!-- Python Modules -->
         <div id="pythonModules" class="hidden flex flex-col gap-2 ml-8 text-sm">
           <a href="python.html" class="hover:text-green-400">Module 1</a>
@@ -64,7 +61,6 @@
           <a href="#" class="hover:text-green-400">Module 4</a>
           <a href="#" class="hover:text-green-400">Module 5</a>
         </div>
-
         <!-- Other Languages -->
         <div class="flex items-center gap-3 p-3 hover:bg-gray-700 rounded-lg cursor-pointer">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-6 h-6" alt="JavaScript"/>
@@ -99,7 +95,6 @@
 
     <!-- Main Content -->
     <div class="flex flex-col w-full md:w-2/4 space-y-8">
-
       <div class="glass p-6 flex flex-col space-y-4">
         <div class="flex justify-between items-center">
           <h3 class="text-xl font-bold">🎯 Daily Quest</h3>
@@ -137,24 +132,6 @@
           </div>
         </div>
       </div>
-
-    </div>
-
-    <!-- Right Sidebar -->
-    <div class="hidden md:flex flex-col space-y-8">
-
-      <div class="glass p-6 flex flex-col items-center text-center">
-        <h3 class="text-xl font-bold">🛡️ Level</h3>
-        <p class="text-green-400 text-3xl font-bold">8</p>
-        <p class="text-gray-400 mt-2">Level Up!</p>
-      </div>
-
-      <div class="glass p-6 flex flex-col items-center text-center">
-        <h3 class="text-xl font-bold">🏅 Rank</h3>
-        <p class="text-yellow-400 text-3xl font-bold">#3</p>
-        <p class="text-gray-400 mt-2">Leaderboard</p>
-      </div>
-
     </div>
 
   </div>
@@ -164,9 +141,29 @@
     © 2025 E-Learn Quest — Level Up Your Mind. All rights reserved.
   </footer>
 
+  <!-- Chatbot Toggle Button -->
+  <button id="chatbotToggle" class="fixed bottom-6 right-6 bg-green-400 text-black px-4 py-2 rounded-full font-bold glow-btn z-50 shadow-lg">
+    💬 Copilot
+  </button>
+
+  <!-- Chatbot Box -->
+  <div id="chatbotBox" class="hidden fixed bottom-20 right-6 w-80 glass p-4 rounded-2xl z-40 flex flex-col space-y-3 animate__animated animate__fadeInUp">
+    <div class="flex justify-between items-center">
+      <h4 class="text-lg font-bold text-green-300">E-Learn Copilot</h4>
+      <button id="chatbotClose" class="text-gray-400 hover:text-red-400 text-sm font-bold">✖</button>
+    </div>
+    <div id="chatHistory" class="flex-1 h-48 overflow-y-auto text-sm space-y-2 text-gray-200">
+      <p><strong>Copilot:</strong> Hello! How can I help you today? 👋</p>
+    </div>
+    <div class="flex gap-2">
+      <input type="text" id="chatInput" class="flex-1 px-3 py-2 rounded-lg bg-gray-800 text-white text-sm" placeholder="Ask me anything...">
+      <button id="sendChat" class="bg-green-500 px-3 py-2 rounded-lg text-sm font-bold text-black">Send</button>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script>
-    // Animate XP Progress Bar
+    // Animate XP Progress
     let xp = 0;
     const targetXp = 1300;
     const xpValue = document.getElementById('xpValue');
@@ -189,6 +186,37 @@
     pythonButton.addEventListener('click', () => {
       pythonModules.classList.toggle('hidden');
       pythonModules.classList.add('animate__animated', 'animate__fadeInDown');
+    });
+
+    // Chatbot functionality
+    const toggleBtn = document.getElementById('chatbotToggle');
+    const chatbotBox = document.getElementById('chatbotBox');
+    const closeBtn = document.getElementById('chatbotClose');
+    const sendBtn = document.getElementById('sendChat');
+    const chatInput = document.getElementById('chatInput');
+    const chatHistory = document.getElementById('chatHistory');
+
+    toggleBtn.onclick = () => chatbotBox.classList.toggle('hidden');
+    closeBtn.onclick = () => chatbotBox.classList.add('hidden');
+
+    sendBtn.onclick = () => {
+      const msg = chatInput.value.trim();
+      if (msg) {
+        const userMsg = document.createElement('p');
+        userMsg.innerHTML = `<strong>You:</strong> ${msg}`;
+        chatHistory.appendChild(userMsg);
+
+        const botReply = document.createElement('p');
+        botReply.innerHTML = `<strong>Copilot:</strong> I'm still learning! More features coming soon.`;
+        chatHistory.appendChild(botReply);
+
+        chatInput.value = '';
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+    };
+
+    chatInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") sendBtn.click();
     });
   </script>
 
